@@ -20,12 +20,12 @@ class Register extends React.Component {
         event.preventDefault();
     
         axios
-          .post('http://localhost:5000/api/register', this.state)
+          .post('http://localhost:5000/api/users', this.state)
           .then(response => {
             localStorage.setItem('jwt', response.data.token);
     
             console.log('register props: ', this.props);
-            this.props.history.push('/users');
+            this.props.history.push('/jokes');
           })
           .catch(err => console.log('bad register panda!'));
       };
